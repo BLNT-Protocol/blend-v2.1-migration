@@ -15,11 +15,12 @@ The initial deployment deliberately leaves TestnetV2.1 admin-on-ice, outside the
 - [`blend-capital/blend-sdk-js`](https://github.com/blend-capital/blend-sdk-js) (upstream `main`)
 - [`blend-capital/blend-contracts`](https://github.com/blend-capital/blend-contracts) (upstream `main`, V1 emitter)
 - [`blend-capital/blend-contracts-v2`](https://github.com/blend-capital/blend-contracts-v2) (upstream `main`)
+- [`BLNT-Protocol/blend-vote-contract`](https://github.com/BLNT-Protocol/blend-vote-contract)
 
 ## Clone
 
 ```sh
-git clone --recurse-submodules git@github.com:Blend-V2-1/blend-v2.1-migration.git
+git clone --recurse-submodules git@github.com:BLNT-Protocol/blend-v2.1-migration.git
 ```
 
 For an existing checkout:

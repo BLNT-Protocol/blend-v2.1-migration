@@ -20,5 +20,5 @@
 	branch = main
 [submodule "blend-vote-contract"]
 	path = blend-vote-contract
-	url = git@github.com:Blend-V2-1/blend-vote-contract.git
+	url = git@github.com:BLNT-Protocol/blend-vote-contract.git
 	branch = main
