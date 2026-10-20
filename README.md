@@ -42,6 +42,14 @@ make receiver-test
 
 The test is deterministic and does not interact with the shared public-testnet emitter. It is also included in the repository-wide `make test` target.
 
+For a deployment-level test over a real local RPC network, run:
+
+```sh
+make receiver-test-localnet
+```
+
+This starts an isolated Protocol-27 Quickstart network, deploys the exact V1 emitter, optimized receiver, and official V2 backstop and factory WASMs, then executes and verifies both 31-day migration hops through submitted transactions. Quickstart retains its normal one-second local ledger cadence; the harness advances Core, Horizon, and RPC together across each production time gate. It uses real seven-decimal Stellar Asset Contracts for BLND and the legacy and V2.1 LP-token interfaces. The container is stopped automatically, while transaction evidence and a result manifest remain under `.localnet-receiver-e2e/`.
+
 ## Build and deployment
 
 The unchanged V2 backstop, pool-factory, and pool contracts, plus the Comet V1.1 pool contract, are fetched from their official releases and accepted only after fixed SHA-256 verification. The committed V1 emitter WASM is used only to create the isolated localnet legacy fixture; public testnet resolves and verifies the emitter already administering BLND. The locally built test-oracle WASM must match its designated hash.

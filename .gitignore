@@ -1,5 +1,6 @@
 .artifacts/
 .localnet/
+.localnet-receiver-e2e/
 .mainnet/
 .testnet/
 /test-sep40-oracle/target/

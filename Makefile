@@ -4,7 +4,7 @@ ORACLE_DIR := test-sep40-oracle
 RECEIVER_DIR := blend-v2.1-receiver
 MIGRATION_HARNESS_DIR := migration-harness
 
-.PHONY: build test receiver-test localnet-plan localnet-validate localnet-start localnet-deploy \
+.PHONY: build test receiver-test receiver-test-localnet localnet-plan localnet-validate localnet-start localnet-deploy \
 	localnet-run localnet-status localnet-stop testnet-plan testnet-validate \
 	testnet-start testnet-deploy testnet-enable-emissions testnet-run testnet-status \
 	testnet-resume testnet-activate-pool testnet-keeper-plan testnet-keeper-once \
@@ -28,6 +28,9 @@ receiver-test:
 	cd $(MIGRATION_HARNESS_DIR) && cargo fmt --all -- --check
 	cd $(MIGRATION_HARNESS_DIR) && cargo clippy --all-targets --locked -- -D warnings
 	cd $(MIGRATION_HARNESS_DIR) && cargo test --locked
+
+receiver-test-localnet:
+	bash scripts/test-receiver-migration-localnet.sh
 
 localnet-plan:
 	bash scripts/deploy-v2.1.sh plan
