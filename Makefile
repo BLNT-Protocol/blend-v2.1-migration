@@ -1,8 +1,10 @@
 V2_DIR := blend-contracts-v2
 COMET_DIR := comet-contracts-v1.1
 ORACLE_DIR := test-sep40-oracle
+RECEIVER_DIR := blend-v2.1-receiver
+MIGRATION_HARNESS_DIR := migration-harness
 
-.PHONY: build test localnet-plan localnet-validate localnet-start localnet-deploy \
+.PHONY: build test receiver-test localnet-plan localnet-validate localnet-start localnet-deploy \
 	localnet-run localnet-status localnet-stop testnet-plan testnet-validate \
 	testnet-start testnet-deploy testnet-enable-emissions testnet-run testnet-status \
 	testnet-resume testnet-activate-pool testnet-keeper-plan testnet-keeper-once \
@@ -18,6 +20,14 @@ test: build
 	cd $(V2_DIR) && cargo test --all --tests --locked
 	$(MAKE) -C $(COMET_DIR) test
 	$(MAKE) -C $(ORACLE_DIR) test
+	$(MAKE) receiver-test
+
+receiver-test:
+	$(MAKE) -C $(RECEIVER_DIR) test
+	$(MAKE) -C $(RECEIVER_DIR) build
+	cd $(MIGRATION_HARNESS_DIR) && cargo fmt --all -- --check
+	cd $(MIGRATION_HARNESS_DIR) && cargo clippy --all-targets --locked -- -D warnings
+	cd $(MIGRATION_HARNESS_DIR) && cargo test --locked
 
 localnet-plan:
 	bash scripts/deploy-v2.1.sh plan

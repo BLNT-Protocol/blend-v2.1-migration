@@ -15,6 +15,7 @@ The initial deployment deliberately leaves TestnetV2.1 admin-on-ice, outside the
 - [`blend-capital/blend-sdk-js`](https://github.com/blend-capital/blend-sdk-js) (upstream `main`)
 - [`blend-capital/blend-contracts`](https://github.com/blend-capital/blend-contracts) (upstream `main`, V1 emitter)
 - [`blend-capital/blend-contracts-v2`](https://github.com/blend-capital/blend-contracts-v2) (upstream `main`)
+- [`BLNT-Protocol/blend-v2.1-receiver`](https://github.com/BLNT-Protocol/blend-v2.1-receiver) (two-hop V2-to-V2.1 emitter migration receiver)
 - [`BLNT-Protocol/blend-vote-contract`](https://github.com/BLNT-Protocol/blend-vote-contract)
 
 ## Clone
@@ -30,6 +31,16 @@ git submodule update --init --recursive
 ```
 
 Submodule commits are intentionally pinned for reproducibility. Do not use `git submodule update --remote` in a deployment checkout. Advancing a gitlink requires reviewing the new source and any affected designated WASM hashes.
+
+## Receiver migration test
+
+The receiver migration harness executes the optimized receiver WASM against the exact pinned unchanged V1 emitter WASM. It advances the simulated ledger through both 31-day queue periods and verifies the two-hop handoff, strict balance qualification, atomic rollback, legacy-LP return, direct-swap recovery, and burning of receiver-period BLND.
+
+```sh
+make receiver-test
+```
+
+The test is deterministic and does not interact with the shared public-testnet emitter. It is also included in the repository-wide `make test` target.
 
 ## Build and deployment
 

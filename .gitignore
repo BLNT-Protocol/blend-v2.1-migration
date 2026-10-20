@@ -4,3 +4,5 @@
 .testnet/
 /test-sep40-oracle/target/
 /test-sep40-oracle/test_snapshots/
+/migration-harness/target/
+/migration-harness/test_snapshots/

@@ -1,0 +1,13 @@
+[package]
+name = "blend-v2-1-migration-tests"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.91.1"
+license = "AGPL-3.0"
+publish = false
+
+[lib]
+doctest = false
+
+[dev-dependencies]
+soroban-sdk = { version = "=27.0.3", features = ["testutils"] }

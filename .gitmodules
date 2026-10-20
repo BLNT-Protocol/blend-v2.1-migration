@@ -22,3 +22,7 @@
 	path = blend-vote-contract
 	url = git@github.com:BLNT-Protocol/blend-vote-contract.git
 	branch = main
+[submodule "blend-v2.1-receiver"]
+	path = blend-v2.1-receiver
+	url = git@github.com:BLNT-Protocol/blend-v2.1-receiver.git
+	branch = main
