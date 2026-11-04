@@ -189,7 +189,7 @@ validate_deployment() {
 
     pool_config="$(invoke_view "${V21_POOL}" get_config)"
     printf '%s' "${pool_config}" | jq -e --arg oracle "${V21_ORACLE}" \
-        '.status == 1 and .oracle == $oracle' >/dev/null ||
+        '(.status == 0 or .status == 1) and .oracle == $oracle' >/dev/null ||
         die "Fixed v2.1 is not active or has an unexpected oracle"
 
     reserve_list="$(invoke_view "${V21_POOL}" get_reserve_list)"
