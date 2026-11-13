@@ -13,6 +13,7 @@ The initial deployment deliberately leaves TestnetV2.1 admin-on-ice, outside the
 - [`CometDEX/comet-contracts-v1`](https://github.com/CometDEX/comet-contracts-v1) (upstream `main`, Comet v1.1)
 - [`Blend-V2-1/blend-ui`](https://github.com/Blend-V2-1/blend-ui)
 - [`blend-capital/blend-sdk-js`](https://github.com/blend-capital/blend-sdk-js) (upstream `main`)
+- [`BLNT-Protocol/blnt-sdk-js`](https://github.com/BLNT-Protocol/blnt-sdk-js)
 - [`blend-capital/blend-contracts`](https://github.com/blend-capital/blend-contracts) (upstream `main`, V1 emitter)
 - [`blend-capital/blend-contracts-v2`](https://github.com/blend-capital/blend-contracts-v2) (upstream `main`)
 - [`BLNT-Protocol/blend-v2.1-receiver`](https://github.com/BLNT-Protocol/blend-v2.1-receiver) (two-hop V2-to-V2.1 emitter migration receiver)

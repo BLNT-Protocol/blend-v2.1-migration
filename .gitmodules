@@ -26,3 +26,7 @@
 	path = blend-v2.1-receiver
 	url = git@github.com:BLNT-Protocol/blend-v2.1-receiver.git
 	branch = main
+[submodule "blnt-sdk-js"]
+	path = blnt-sdk-js
+	url = git@github.com:BLNT-Protocol/blnt-sdk-js.git
+	branch = main
